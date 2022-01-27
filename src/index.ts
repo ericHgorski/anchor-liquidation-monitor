@@ -1,9 +1,5 @@
-import { Api, ws } from './services/api'
-import express from 'express'
-import WebSocket from 'ws'
+import api from './services/api'
+import  observer from './services/sockets'
 
-const app = express()
-const api = new Api(app)
-const socket = new ws(new WebSocket('wss://observer.terra.dev'))
-socket.start()
+observer.start()
 api.start()

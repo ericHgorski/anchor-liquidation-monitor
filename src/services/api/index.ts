@@ -1,11 +1,12 @@
 import cors from 'cors'
 import compression from 'compression'
+import express from 'express'
 import prices from '../routes/prices'
 import liquidations from '../routes/liquidations'
 
 const BACKEND_API_PORT = 4001
 
-export class Api {
+class Api {
   app: any
   constructor (app: any) {
     app.use(cors())
@@ -28,30 +29,7 @@ export class Api {
   start = () => { this.app.listen(BACKEND_API_PORT, '0.0.0.0', this.handleListen) }
 }
 
-export class ws {
-  socket: any
-  constructor (socket: any) {
-    this.socket = socket
-  }
+const app = express()
+const api = new Api(app)
 
-  start = () => {
-    let msgCount = 0
-    this.socket.onopen = () => {
-      console.log('connected to websocket. subscribing...')
-      this.socket.send(JSON.stringify({subscribe: "new_block", chain_id: "columbus-5"}))
-    }
-    this.socket.onmessage = (message: any) => {
-      if (msgCount > 0) { return }
-      const dataSym = Object.getOwnPropertySymbols(message)[2] // retrieve data from ws response
-      this.handleMessage(JSON.parse(message[dataSym]))
-      msgCount++
-    }
-    this.socket.onclose = () => {
-      console.log('websocket closed. reopening...')
-      setTimeout(() => { this.start() }, 1000)
-    }
-  }
-  handleMessage = (msg: any) => {
-    console.log('msg', msg)
-  }
-}
+export default api

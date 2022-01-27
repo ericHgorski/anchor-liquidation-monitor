@@ -1,10 +1,11 @@
-
+import observer from '../../sockets'
 
 const handleGetReq = {}
 
 handleGetReq['/'] = async (req: any, res: any, next: any) => {
   try {
-    res.send('success')
+    const collat = observer.getBorrowStableEvents()
+    res.send(collat)
   } catch (err) {
     console.error(err)
     next(err)
