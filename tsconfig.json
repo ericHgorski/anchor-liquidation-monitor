@@ -1,0 +1,28 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "baseUrl": ".",
+    "paths": {
+      "@/*": [
+        "src/*"
+      ]
+    },
+    "target": "es5",
+    "resolveJsonModule": true,
+       "declaration": true,
+    "outDir": "./build",
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "noImplicitAny": false,
+     "strictFunctionTypes": false,
+     "noUnusedLocals": true, 
+    "skipLibCheck": true
+  },
+  "compileOnSave": true,
+  "include": [
+    "src/**/*",
+  ],
+}
