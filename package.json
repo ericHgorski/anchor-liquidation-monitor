@@ -1,0 +1,11 @@
+{
+  "name": "anchor-liquidation-monitor",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/ericHgorski/anchor-liquidation-monitor.git",
+  "author": "Eric Gorski <er.h.gorski@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.2"
+  }
+}
