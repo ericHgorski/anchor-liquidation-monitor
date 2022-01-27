@@ -1,8 +1,11 @@
+import observer from "@/services/sockets"
+
 const handleGetReq = {}
 
 handleGetReq['/'] = async (req: any, res: any, next: any) => {
   try {
-    res.send('success')
+    const stuff = observer.getParsedEvents()
+    res.send(stuff)
   } catch (err) {
     console.error(err)
     next(err)
