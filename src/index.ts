@@ -1,5 +1,5 @@
-import Api from './services/api'
-import observer from './services/sockets'
+import Api from '@/services/api'
+import observer from '@/services/sockets'
 import express from 'express'
 
 const app = express()

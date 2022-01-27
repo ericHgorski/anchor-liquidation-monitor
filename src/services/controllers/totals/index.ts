@@ -4,8 +4,8 @@ const handleGetReq = {}
 
 handleGetReq['/'] = async (req: any, res: any, next: any) => {
   try {
-    const stuff = observer.getParsedEvents()
-    res.send(stuff)
+    const eventUpdates = observer.getParsedEvents()
+    res.send(eventUpdates)
   } catch (err) {
     console.error(err)
     next(err)

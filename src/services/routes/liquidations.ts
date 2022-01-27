@@ -1,5 +1,5 @@
 import { Router } from 'express'
-import { getRequestHandler } from '../controllers/liquidations'
+import { getRequestHandler } from '@/services/controllers/liquidations'
 
 const router = Router()
 

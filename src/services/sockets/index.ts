@@ -1,5 +1,4 @@
 import WebSocket from 'ws'
-// import { unmarshalTx } from '@tendermint/amino-js'
 
 class Observer {
   socket: any
@@ -41,8 +40,8 @@ class Observer {
    
   }
   getParsedEvents = () => {
-    // parse the events to extract relevant data and return it, this function can than be called from the endpoint t
-    // o update liquidation volume at given price points
+    // parse the events to extract relevant data and return it, this function can than be called from the endpoint
+    // to update liquidation volume at given price points
     return this.events
   }
 }

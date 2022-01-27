@@ -1,7 +1,7 @@
 import cors from 'cors'
 import compression from 'compression'
-import prices from '../routes/prices'
-import liquidations from '../routes/liquidations'
+import totals from '@/services/routes/totals'
+import liquidations from '@/services/routes/liquidations'
 
 const BACKEND_API_PORT = 4001
 
@@ -10,7 +10,7 @@ export default class Api {
   constructor (app: any) {
     app.use(cors())
     app.use(compression())
-    app.use('/prices', prices)
+    app.use('/totals', totals)
     app.use('/liquidations', liquidations)
     app.use(this.handleError)
     this.app = app
