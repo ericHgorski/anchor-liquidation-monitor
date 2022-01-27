@@ -1,5 +1,4 @@
 import cors from 'cors'
-import morgan from 'morgan'
 import compression from 'compression'
 import prices from '../routes/prices'
 import liquidations from '../routes/liquidations'
@@ -9,9 +8,6 @@ const BACKEND_API_PORT = 4001
 export default class Api {
   app: any
   constructor (app: any) {
-    app.use(morgan('combined', {
-      stream: { write: (msg: any) => console.log(msg) }
-    }))
     app.use(cors())
     app.use(compression())
 
