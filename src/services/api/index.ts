@@ -2,10 +2,11 @@ import cors from 'cors'
 import compression from 'compression'
 import totals from '@/services/routes/totals'
 import liquidations from '@/services/routes/liquidations'
+import express from 'express'
 
 const BACKEND_API_PORT = 4001
 
-export default class Api {
+class Api {
   app: any
   constructor (app: any) {
     app.use(cors())
@@ -28,3 +29,7 @@ export default class Api {
   start = () => { this.app.listen(BACKEND_API_PORT, '0.0.0.0', this.handleListen) }
 }
 
+const app = express()
+const api = new Api(app)
+
+export default api
