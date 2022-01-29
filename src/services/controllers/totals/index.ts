@@ -27,14 +27,14 @@ handleGetReq['/'] = async (req: any, res: any, next: any) => {
     await Promise.allSettled(borrower_infos.map(async({ borrower, loan_amount}) => { 
       if (Number(loan_amount) > 0) { // could combine this logic with the below logic for more concise code
         const info = await getLiquidationInfo(borrower)
-        liquidationInfos.push(info)
+        liquidationInfos.push(info) // not some liquidation prices are extremely high (e.g. 130) would this not mean they are already liquidated?
       }
-    }))
+    }))    
     const lunaPrices = Array.from({length: MAX_LUNA_PRICE}, (v, i) => i)
 
     const liquidations = {}
 
-    // could use a reduce function here as well but
+    // could use a reduce function here as well
     lunaPrices.map((price) => {
       let sum = 0
       liquidationInfos.map((info) => {
@@ -44,7 +44,7 @@ handleGetReq['/'] = async (req: any, res: any, next: any) => {
       })
       liquidations[price] = sum
     })
-    
+
     // track incoming blockData with observer.getBlockData() and consider relevant events (repay/borrow) to make updates to liquidations
     res.send(liquidations)
   } catch (err) {
