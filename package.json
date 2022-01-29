@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@anchor-protocol/anchor.js": "^4.0.0",
+    "@anchor-protocol/webapp-fns": "^0.20.1",
     "@tendermint/amino-js": "^0.6.2",
     "@terra-money/terra.js": "^3.0.6",
     "compression": "^1.7.4",

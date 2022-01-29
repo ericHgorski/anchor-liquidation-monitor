@@ -3,6 +3,6 @@ import { getRequestHandler } from '@/services/controllers/liquidations'
 
 const router = Router()
 
-router.get('/', getRequestHandler('/'))
+router.get('/:address', getRequestHandler('/:address'))
 
 export default router
