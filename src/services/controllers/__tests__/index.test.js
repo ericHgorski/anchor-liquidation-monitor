@@ -1,5 +1,5 @@
 
-const { getRequestHandler } = require('../totals/index')
+const { getRequestHandler } = require('../totals')
 
 describe('totals api controller', () => {
   beforeEach(() => {
@@ -14,7 +14,7 @@ describe('totals api controller', () => {
 
   describe('/info', () => {
     it('should return a json with a total_borrowed field', async (done) => {
-      const res = await getRequestHandler['/']
+      const res = await getRequestHandler['/info']
       expect(JSON.parse(res)).toHaveProperty('total_borrowed')
       done()
     })
