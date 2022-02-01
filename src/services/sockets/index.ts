@@ -40,7 +40,7 @@ class Observer {
   getBlockData = () => {
     // parse the events to extract relevant data and return it, this function can than be called from the endpoint
     // to update liquidation volume at given price points
-    return this.blockData.length
+    return this.blockData
   }
   // parse exchange rates event from most recent block to get up to date price info
   getLunaPrice = () => {}

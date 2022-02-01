@@ -5,6 +5,7 @@ const MAX_LTV = 0.6
 
 export const parseAsset = (asset: string) => Number(asset) / Math.pow(10, 6)
 
+// ensure of type terra address instead of just string
 export const getLiquidationInfo = async (acct: string) => {
   // returns balance i.e amount of bluna provided from a given address
   const { balance} = await queryCustodyBorrower({
